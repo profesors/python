@@ -1,16 +1,18 @@
-# Tenemos dos bolsas, primero elegimos de una bolsa al azar y luego un caramelo al azar
+# -*- coding:utf-8 -*-
+# Elegimos caramelos de una bolsa, calcular la probabilidad de obtener un caramelo de
+#	fresa después de un número determinado de intentos
 from random import *
 
-intentos = 1000000
-f = 0.0
+intentos = 10000
+acumulador = 0.0
 
-for contador in range(1, intentos+1):
-	bolsa = ["f","f","f","m","m","l","l","l"]
+for i in range(1, intentos+1):
+	bolsa = ["f","f","f","m","m","l"]
 
 	x = choice(bolsa)
-	print "Intentos",contador, "Obtenido",x, "P(f)=",f/intentos
+	print "Intentos",i, "P(f)=",acumulador/intentos
+
 	if x == "f":
-		f = f + 1
+		acumulador = acumulador + 1
 
-
-print "P(fresa) = ",f/intentos
+print "P(fresa) = ",acumulador/intentos
